@@ -4,7 +4,7 @@ pipeline {
     stages{
         stage("git"){
             steps{
-                git url: 'https://github.com/Mayank8080/my-webapp.git', branch: 'main'
+                git url: 'https://github.com/Mayank8080/first.git', branch: 'master'
 
             }
         }
@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Deploy to Tomcat') {
             steps {
-                deploy adapters: [tomcat9(credentialsId: 'TomcatCredentials', url: 'http://localhost:9006/')], contextPath: '/my-webapp', war: '**/*.war'
+                deploy adapters: [tomcat9(credentialsId: 'TomcatCredentials', url: 'http://localhost:9006/')], contextPath: '/webapp', war: '**/*.war'
             }
         }
         }
